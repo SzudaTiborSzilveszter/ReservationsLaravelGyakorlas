@@ -38,8 +38,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $record = User::find($user);
-        $record->fill($request->all())->save();
+        $user->fill($request->all())->save();
     }
 
     /**

@@ -54,8 +54,7 @@ class AirlineController extends Controller
      */
     public function update(Request $request, Airline $airline)
     {
-        $record = Airline::find($airline);
-        $record->fill($request->all())->save();
+        $airline->fill($request->all())->save();
     }
 
     /**

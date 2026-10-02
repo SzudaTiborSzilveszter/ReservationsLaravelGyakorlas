@@ -39,7 +39,7 @@ class TravelController extends Controller
      */
     public function show(Travel $travel)
     {
-        return Travel::find($travel);
+        return $travel; //Travel::find($travel);
     }
 
     /**
@@ -55,8 +55,7 @@ class TravelController extends Controller
      */
     public function update(UpdateTravelRequest $request, Travel $travel)
     {
-        $record = Travel::find($travel);
-        $record->fill($request->all())->save();
+        $travel->fill($request->all())->save();
     }
 
     /**
