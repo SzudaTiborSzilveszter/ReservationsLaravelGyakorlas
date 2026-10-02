@@ -13,7 +13,7 @@ class TravelController extends Controller
      */
     public function index()
     {
-        //
+        return Travel::all();
     }
 
     /**
@@ -29,7 +29,9 @@ class TravelController extends Controller
      */
     public function store(StoreTravelRequest $request)
     {
-        //
+        $record = new Travel();
+        $record->fill($request->All())->save();
+        Travel::create($request);
     }
 
     /**
@@ -37,7 +39,7 @@ class TravelController extends Controller
      */
     public function show(Travel $travel)
     {
-        //
+        return Travel::find($travel);
     }
 
     /**
@@ -53,7 +55,8 @@ class TravelController extends Controller
      */
     public function update(UpdateTravelRequest $request, Travel $travel)
     {
-        //
+        $record = Travel::find($travel);
+        $record->fill($request->all())->save();
     }
 
     /**
@@ -61,6 +64,6 @@ class TravelController extends Controller
      */
     public function destroy(Travel $travel)
     {
-        //
+        Travel::find($travel)->delete();
     }
 }
